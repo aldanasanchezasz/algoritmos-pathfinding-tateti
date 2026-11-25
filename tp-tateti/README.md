@@ -1,110 +1,42 @@
-# Proyecto Tateti - Algoritmo Minimax
+# Tateti con Minimax
 
-## 📋 Descripción
+Agente que juega tateti (tic-tac-toe) de forma óptima usando el algoritmo **Minimax** de búsqueda entre adversarios.
 
-Este proyecto tiene como objetivo enseñar el algoritmo **Minimax** aplicado al juego del Tateti (Tic-Tac-Toe). El proyecto está estructurado en módulos para facilitar la comprensión e implementación gradual.
+## Cómo funciona
 
-## 🎯 Objetivos
+- `tateti.py` formula el juego según la teoría de juegos: estado inicial, jugador de turno, acciones posibles, resultado de cada acción, test terminal y utilidad.
+- `estrategias.py` implementa dos estrategias:
+  - **Aleatoria:** elige cualquier casilla libre (sirve como rival de referencia).
+  - **Minimax:** recorre recursivamente el árbol de jugadas alternando nodos MAX y MIN y elige la acción con mejor valor garantizado. Contra este agente, lo mejor que se puede conseguir es un empate.
 
-- Comprender la teoría de juegos y los algoritmos de búsqueda entre adversarios
-- Implementar el algoritmo Minimax  
-- Repasar conceptos de recursión
+## Modos de juego
 
-## 📁 Estructura del Proyecto
+- Humano vs. humano
+- Humano vs. máquina
+- Máquina vs. máquina
+
+## Estructura
 
 ```
 tp-tateti/
-├── tateti.py           # Formulación del juego (COMPLETO)
-├── estrategias.py      # Estrategias de juego (PARA IMPLEMENTAR)
-├── gui_pygame.py       # Interfaz gráfica moderna (COMPLETO)
-├── main.py             # Punto de entrada de la aplicación (COMPLETO)
-├── test.py             # Pruebas unitarias (COMPLETO)
-├── requirements.txt    # Dependencias del proyecto
-└── README.md           # Este archivo
+├── tateti.py         # Formulación del juego
+├── estrategias.py    # Estrategias aleatoria y Minimax
+├── gui_pygame.py     # Interfaz gráfica
+├── main.py           # Punto de entrada
+├── test.py           # 18 tests unitarios
+└── requirements.txt
 ```
 
-## 🔧 Componentes
+## Ejecución
 
-### 1. `tateti.py` - Formulación del juego ✅
-
-Este módulo contiene la **formulación** del tateti según la teoría de juegos.
-
-### 2. `estrategias.py` - Para implementar 🔨
-
-**TODO**: Implementar el algoritmo Minimax en este módulo.
-
-#### Funciones a completar:
-
-```python
-def estrategia_minimax(tateti: Tateti, estado: List[List[str]]) -> Tuple[int, int]:
-    """
-    Estrategia minimax: elige la mejor acción usando el algoritmo minimax.
-    ....
-    """
-    # TODO: Implementar algoritmo minimax
-```
-
-### 3. `main.py` - Interfaz gráfica ✅
-
-Aplicación completa con tres modos de juego:
-- **Humano vs Humano**: Dos jugadores hacen click en las casillas
-- **Humano vs Máquina**: El humano juega contra la IA
-- **Máquina vs Máquina**: Observa dos IAs jugando
-
-### 4. `test.py` - Pruebas ✅
-
-Suite de pruebas para verificar tu implementación.
-
-## 🚀 Instalación y Ejecución
-
-### Requisitos del Sistema
-
-- **Python 3.10+** (recomendado)
-- **Sistema operativo**: Windows, macOS, o Linux
-
-### 1. Instalar Dependencias
-
-#### Opción A: Usando requirements.txt (Recomendado)
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-#### Opción B: Instalación manual
-```bash
-python3 -m pip install pygame>=2.6.0
-```
-
-#### Verificar la instalación
-```bash
-python3 -c "import pygame; print('Pygame instalado correctamente:', pygame.version.ver)"
-```
-
-### 2. Ejecutar el Juego
+Requiere Python 3.10 o superior.
 
 ```bash
-python3 main.py
+pip install -r requirements.txt
+python main.py    # jugar
+python test.py    # correr los tests
 ```
 
-### 3. Ejecutar las Pruebas
+## Bibliografía
 
-```bash
-python3 test.py
-```
-
-## 📝 Guía de Implementación
-
-### Paso 1: Primer acercamiento
-1. Ejecuta `python3 main.py` y juega algunos juegos, 
-   inicialmente la única estrategia implementada es la aleatoria.
-2. Examina el código en `tateti.py`
-
-### Paso 2: Implementar `estrategia_minimax` en `estrategias.py`
-
-### Paso 3: Probar y Validar
-1. Ejecuta las pruebas: `python3 test.py`
-2. Juega contra tu IA: `python3 main.py`
-3. ¿Es posible ganarle a la IA?
-
-## 🔗 Bibliografía
-
-- [Russell & Norvig - AI: A Modern Approach, Chapter 5](http://aima.cs.berkeley.edu/)
+Russell, S. y Norvig, P. *Artificial Intelligence: A Modern Approach*, capítulo 5 (búsqueda entre adversarios).
